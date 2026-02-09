@@ -1,3 +1,4 @@
+# type: ignore[import]
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -15,9 +16,9 @@ class EmailSender:
         self.receiver_email = receiver_email
         self.attachment_path = attachment_path
         self.attachment_name = attachment_path.split("/")[-1]
-        self.event_name = "Azure Fundamentals Workshop"
-        self.event_date = "1st May 2024"
-        self.email_subject = "Azure Fundamentals Workshop Completion Certificate"
+        self.event_name = "Event Name"
+        self.event_date = "Event Date"
+        self.email_subject = "Email Subject"
     
     def send_email(self):
         subject = self.email_subject

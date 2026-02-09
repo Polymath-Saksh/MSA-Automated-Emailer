@@ -1,59 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MLSA Certificate</title>
+    <title>MLSA Certificate - event_name</title>
     <style>
+        /* Modern Reset & Dark Theme Base */
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0b0b0b;
+            /* Deep Black/Grey */
+            color: #e0e0e0;
+            -webkit-font-smoothing: antialiased;
         }
-        .certificate {
-            max-width: 80%;
+
+        .email-wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: #0b0b0b;
+            padding: 40px 0;
+        }
+
+        .container {
+            max-width: 600px;
             margin: 0 auto;
-            border: 2px solid #0078D4;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: #F4F4F4;
+            background-color: #1a1a1c;
+            /* Dark Grey Container */
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333336;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        .header {
-            font-size: 24px;
-            color: #0078D4;
+
+        /* Futuristic Header Section */
+        .header-accent {
+            height: 4px;
+            background: linear-gradient(90deg, #0078d4, #00c6ff);
+        }
+
+        .hero {
+            padding: 45px 40px 25px 40px;
+            text-align: center;
+            background: radial-gradient(circle at top, #252529 0%, #1a1a1c 100%);
+        }
+
+        .header-title {
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 0%, #00c6ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 12px 0;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #00c6ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 0 40px 30px 40px;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .greeting {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .message-text {
             margin-bottom: 20px;
+            color: #b0b0b5;
         }
-        .message {
+
+        /* Futuristic Cards */
+        .card-container {
+            padding: 0 30px 30px 30px;
+        }
+
+        .card {
+            background-color: #232326;
+            border: 1px solid #333336;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            text-align: left;
+            position: relative;
+        }
+
+        .card-emoji {
+            font-size: 24px;
+            margin-bottom: 12px;
+            display: inline-block;
+            background: rgba(0, 198, 255, 0.1);
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            color: #ffffff;
             font-size: 18px;
-            color: #333;
-            margin-bottom: 30px;
+            font-weight: 700;
         }
-        .footer {
+
+        .card p {
+            margin: 8px 0;
             font-size: 14px;
-            color: #666;
-            margin-top: 30px;
+            color: #a0a0a5;
         }
-        .mlsa-logo-credentials {
-            margin-top: 20px;
+
+        /* Buttons & Actions */
+        .btn-group {
+            margin-top: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+            color: #ffffff !important;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            margin-top: 8px;
+            margin-right: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #0078d4;
+            color: #00c6ff !important;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #121214;
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #333336;
+        }
+
+        .mlsa-logo {
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 8px rgba(0, 120, 212, 0.4));
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #707075;
+            line-height: 1.6;
+        }
+
+        .signature {
+            margin-top: 25px;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 16px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            color: #00c6ff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background: rgba(0, 198, 255, 0.05);
+            border-radius: 20px;
+        }
+
+        .social-icon {
+            margin-right: 8px;
+        }
+
+        /* Responsive Fixes */
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100% !important;
+                border-radius: 0;
+                border: none;
+            }
+
+            .hero,
+            .content {
+                padding: 35px 20px;
+            }
+
+            .card-container {
+                padding: 0 15px 20px 15px;
+            }
+
+            .btn {
+                display: block;
+                margin-right: 0;
+                text-align: center;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="certificate">
-        <div class="header">event_name Certificate</div>
-        <div class="message">Dear receiver_name,<br> Congratulations! Your dedication in the
-            event_name on event_date is
-            commendable!
-        </div><br>
-        <div class="message">Attached is your Completion Certificate as a token of appreciation.</div>
-        <div class="message">Feel free to display it proudly! If you have any more questions or need further
-            assistance,
-            don't hesitate to ask. Happy coding!</div>
-        <div class="mlsa-logo-credentials">
-            <img src="https://mvp.microsoft.com/Assets/UserProfile/MSA/Badge/LevelNew.png" alt="Microsoft Learn Student Ambassador Logo" width="100">
-        </div>
-        <div class="footer">
-            Do send a reply for any issues. We are happy to help!<br>
+    <div class="email-wrapper">
+        <div class="container">
+            <!-- Top Gradient Accent -->
+            <div class="header-accent"></div>
+
+            <div class="hero">
+                <div class="subtitle">Mission Accomplished</div>
+                <div class="header-title">event_name</div>
+                <div style="font-size: 14px; color: #707075; letter-spacing: 1px;">VERIFIED ACHIEVEMENT</div>
+            </div>
+
+            <div class="content">
+                <div class="greeting">Hello receiver_name,</div>
+                <div class="message-text">
+                    Systems check complete. Your performance during <strong>event_name</strong> on
+                    <strong>event_date</strong> reached peak efficiency. Your commitment to the ecosystem is
+                    commendable.
+                </div>
+                <div class="message-text">
+                    Your <strong>Digital Certificate of Completion</strong> is encrypted and attached to this
+                    transmission.
+                </div>
+                <div class="message-text">
+                    Display your credentials proudly across your network. If you require technical support or have
+                    inquiries, our channels remain open. Happy coding.
+                </div>
+            </div>
+
+            <div class="card-container">
+                <!-- AI Leadership Challenge Card -->
+                <div class="card">
+                    <span class="card-emoji"><img
+                            src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/26a1.png" alt="⚡"
+                            width="24" height="24" style="vertical-align:middle; display:inline-block;"></span>
+                    <h3>AI Leadership Credentials</h3>
+                    <p>Unlock elite status by completing our specialized AI learning tracks. Dual completion secures
+                        advanced rewards.</p>
+                    <p><b>Complete both to receive the below reward!</b></p>
+                    <p style="color: #00c6ff; font-weight: 600; font-size: 12px;">INCENTIVE: 50% MICROSOFT VOUCHER</p>
+
+                    <div class="btn-group">
+                        <a class="btn"
+                            href="https://learn.microsoft.com/collections/ddqnu1tpo8g62x?wt.mc_id=studentamb_217334"
+                            target="_blank">Transformation Leader</a>
+                        <a class="btn btn-outline"
+                            href="https://aka.ms/CredentialsAIChallenge?wt.mc_id=studentamb_217334" target="_blank">AI
+                            Credentials Track</a>
+                    </div>
+                </div>
+
+                <!-- Projects Challenge Card -->
+                <div class="card">
+                    <span class="card-emoji"><img
+                            src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f6f8.png" alt="🛸"
+                            width="24" height="24" style="vertical-align:middle; display:inline-block;"></span>
+                    <h3>AI Projects Challenge</h3>
+                    <p>Deploy your innovation. Build a product using Microsoft AI technology and showcase your
+                        architectural skills.</p>
+                    <p><strong>Deadline:</strong> 18th February 2025</p>
+                    <p>Metrics: <em>Technology</em>, <em>Viability</em>, <em>Scalability</em>.</p>
+                    <a class="btn" href="https://forms.office.com/r/BGaBk1dv10" target="_blank">Deploy Project</a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="mlsa-logo">
+                    <img src="https://mvp.microsoft.com/Assets/UserProfile/MSA/Badge/LevelNew.png" alt="MLSA Gold"
+                        width="90">
+                </div>
+                <div class="footer-text">
+                    This is an automated transmission from the MSA Network.<br>
+                    Status: Active | Support: Always Available
+                </div>
+                <div class="signature">
+                    Microsoft Student Ambassador
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
