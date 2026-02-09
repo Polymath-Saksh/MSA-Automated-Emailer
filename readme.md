@@ -1,4 +1,4 @@
-# MLSA-Automated-Emailer [![License: MIT][License-Badge]](LICENSE.md) [![Made with Python][Python-Badge]](https://www.python.org/)
+# MSA-Automated-Emailer [![License: MIT][License-Badge]](LICENSE.md) [![Made with Python][Python-Badge]](https://www.python.org/)
 
 <img src="https://mvp.microsoft.com/Assets/UserProfile/MSA/Badge/LevelNew.png" height="200" style="display: block; margin: 0 auto;"><br>
 
